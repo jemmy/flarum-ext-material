@@ -25,7 +25,7 @@ class AddClientAssets
         $events->listen(ConfigureWebApp::class, [$this, 'configureWebApp']);
         $events->listen(ConfigureLocales::class, [$this, 'addLocales']);
     }
-    
+
     /**
      * Modifies the client view for forum/admin.
      *
@@ -35,20 +35,23 @@ class AddClientAssets
     {
         if ($event->isAdmin()) {
             $event->addAssets([
-                __DIR__.'/../../js/admin/dist/extension.js',
                 __DIR__.'/../../resources/less/admin.less',
             ]);
-            $event->addBootstrapper('extum/flarum-ext-material/main');
         }
         if ($event->isForum()) {
             $event->addAssets([
-                __DIR__.'/../../js/forum/dist/extension.js',
                 __DIR__.'/../../resources/less/app.less',
             ]);
-            $event->addBootstrapper('extum/flarum-ext-material/main');
         }
+
+        $view = $event->view;
+
+        $view->addHeadString("<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Material+Icons\">");
+        $view->addHeadString("<link rel=\"stylesheet\" href=\"/node_modules/material-design-lite/material.min.css\">");
+        $view->addHeadString("<script src=\"/node_modules/material-design-lite/material.min.js\"></script>");
+        $view->addFootString("<script src=\"https://code.getmdl.io/1.3.0/material.min.js\"></script>");
     }
-    
+
     /**
      * Provides i18n files.
      *
