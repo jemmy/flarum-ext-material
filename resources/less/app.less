@@ -342,30 +342,9 @@ li.item-tag1, li.item-tag2, li.item-tag3, li.item-tag4, li.item-tag5, li.item-ta
 }
 
 .Button {
-    box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border: none;
-    border-radius: 4px;
-    position: relative;
-    height: 36px;
-    margin: 0;
-    min-width: 44px;
-    padding: 1px 12px;
-    display: inline-block;
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    line-height: 1;
-    letter-spacing: 0;
-    overflow: hidden;
-    will-change: box-shadow;
-    transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1),background-color .2s cubic-bezier(.4, 0, .2, 1),color .2s cubic-bezier(.4, 0, .2, 1);
-    outline: none;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    line-height: 36px;
-    vertical-align: middle;
+    @extend .mdl-button;
+    @extend .mdl-button--raised;
+    @extend .mdl-button--colored;
 }
 
   .Button:hover {
